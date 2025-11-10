@@ -3,7 +3,13 @@
   "builds": [
     {
       "src": "card_reader3.py",
-      "use": "@vercel/python"
+      "use": "@vercel/python",
+      "config": {
+        "runtime": "python3.9",
+        "includeFiles": [
+          "**"
+        ]
+      }
     }
   ],
   "routes": [
@@ -11,5 +17,11 @@
       "src": "/(.*)",
       "dest": "card_reader3.py"
     }
-  ]
+  ],
+  "functions": {
+    "card_reader3.py": {
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  }
 }

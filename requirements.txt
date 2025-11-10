@@ -1,3 +1,4 @@
+# Lightweight requirements for Vercel deployment
 streamlit==1.28.0
 Pillow==10.0.1
 pytesseract==0.3.10
