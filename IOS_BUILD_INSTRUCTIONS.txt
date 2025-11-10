@@ -1,0 +1,58 @@
+iOS App Build Instructions
+==========================
+
+This document explains how to build your iOS app from the Python Kivy code.
+
+Prerequisites:
+-------------
+
+1. macOS computer (required for iOS development)
+2. Xcode installed from the App Store
+3. Python 3.8 or higher
+4. Kivy and other dependencies
+
+Steps to Build iOS App:
+----------------------
+
+1. Install Kivy and dependencies:
+   pip install -r requirements_kivy.txt
+
+2. Install kivy-ios toolchain:
+   pip install kivy-ios
+
+3. Build the distribution:
+   toolchain build python3 kivy
+
+4. Create the Xcode project:
+   toolchain create cardreader /path/to/your/project
+
+5. Open the generated Xcode project:
+   open cardreader-ios/cardreader.xcodeproj
+
+6. Configure the project in Xcode:
+   - Set your development team
+   - Configure app signing
+   - Set device orientation (Portrait recommended)
+
+7. Connect your iOS device and build/run the app
+
+Important Notes:
+---------------
+
+1. Tesseract OCR might not work directly on iOS due to system limitations
+2. You may need to replace Tesseract with a cloud-based OCR service for iOS
+3. Camera functionality needs to be properly implemented for iOS
+4. App Store submission requires additional steps and compliance checks
+
+Alternative Approach:
+--------------------
+
+For a simpler approach, consider using BeeWare (Toga) which provides better iOS support:
+1. Install Toga: pip install toga
+2. Create a Toga-based interface
+3. Use Briefcase for packaging: pip install briefcase
+4. Build with: briefcase build iOS
+
+For more information, visit:
+- https://kivy.org/doc/stable/guide/packaging-ios.html
+- https://beeware.org/
