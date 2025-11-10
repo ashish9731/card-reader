@@ -1,0 +1,68 @@
+macOS Application Build Instructions
+==================================
+
+This document explains how to build a native macOS application from your Python Streamlit code.
+
+Prerequisites:
+-------------
+
+1. macOS 10.13 or later
+2. Python 3.7 or higher
+3. Xcode command line tools (install with: xcode-select --install)
+
+Steps to Build macOS App:
+------------------------
+
+1. Make sure you have all dependencies installed:
+   pip install -r requirements.txt
+
+2. Install py2app (macOS app builder):
+   pip install py2app
+
+3. Run the build script:
+   ./build_macos.sh
+
+   OR manually build with:
+   python setup_macos.py py2app
+
+4. The built app will be located in the 'dist' folder:
+   dist/Smart Visiting Card Reader.app
+
+5. To run the app:
+   - Double-click the .app file in Finder
+   - OR run from terminal: open dist/"Smart Visiting Card Reader.app"
+
+Important Notes:
+---------------
+
+1. The first build will take some time as it needs to collect all dependencies
+2. Subsequent builds will be faster
+3. If you encounter issues with Tesseract, you may need to install it separately:
+   brew install tesseract
+
+4. For a standalone app that doesn't require Python to be installed on the target machine,
+   use the alias option:
+   python setup_macos.py py2app --alias
+
+Troubleshooting:
+---------------
+
+If you encounter issues:
+
+1. Make sure all required packages are installed:
+   pip install -r requirements.txt
+
+2. If you get permission errors, try running with sudo:
+   sudo python setup_macos.py py2app
+
+3. If the app fails to launch, check the console logs:
+   Console.app -> Search for your app name
+
+Distribution:
+------------
+
+To distribute your app:
+
+1. The .app file in the dist folder can be distributed directly
+2. Users may need to allow apps from unidentified developers:
+   System Preferences -> Security & Privacy -> General -> Allow apps downloaded from
